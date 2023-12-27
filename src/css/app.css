@@ -39,7 +39,7 @@ a {
 }
 
 .sidebar-header {
-	width: 220px;
+	width: 250px;
 	height: 60px;
 	display: flex;
 	align-items: center;
@@ -2568,4 +2568,3 @@ input.search-control-2::placeholder {
 		display: none
 	}
 }
-

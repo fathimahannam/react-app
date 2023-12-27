@@ -1,11 +1,20 @@
 // src/components/Dashboard.js
 import React, {useState} from 'react';
-import App from './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHospital, faHandHoldingHeart, faFileShield, faEnvelopeOpenText, faHelicopterSymbol, faUserCircle, faGears,faRegistered, faLanguage} from '@fortawesome/free-solid-svg-icons';
 import { faAmazonPay } from '@fortawesome/free-brands-svg-icons';
-
 import logoImage from '../assets/Elite-Health-Services-Physical-Therapy-Clinic-logo-Greenwich-CT-300x94.png'
+import  '../css/app.css';
+import '../css/header-colors.css';
+import '../css/bootstrap-extended.css';
+import '../css/bootstrap.min.css';
+import '../css/dark-theme.css';
+import '../css/icons.css';
+import '../css/master.css';
+import '../css/pace.min.css';
+import '../css/semi-dark.css';
+import LandingPage from './LandingPage';
+
 
 const Dashboard = () => {
   const [isHospitalMenuOpen, setIsHospitalMenuOpen] = useState(false);
@@ -53,6 +62,25 @@ const Dashboard = () => {
     closeAllMenus();
     setIsSettingMenuOpen(!isSettingMenuOpen);
   };
+   // State to manage selected theme and colors
+   const [theme, setTheme] = useState('semidark'); // Default theme
+   const [headerColor, setHeaderColor] = useState('headercolor1'); // Default header color
+   const [sidebarColor, setSidebarColor] = useState('sidebarcolor1'); // Default sidebar color
+ 
+   // Function to handle theme change
+   const handleThemeChange = (newTheme) => {
+     setTheme(newTheme);
+   };
+ 
+   // Function to handle header color change
+   const handleHeaderColorChange = (color) => {
+     setHeaderColor(color);
+   };
+ 
+   // Function to handle sidebar color change
+   const handleSidebarColorChange = (color) => {
+     setSidebarColor(color);
+   };
 
   const gradientStyle = {
     background: 'linear-gradient(to bottom, skyblue, white)',
@@ -251,7 +279,6 @@ const Dashboard = () => {
               <i className="bx bx-right-arrow-alt"></i>Custom Page
             </a>
           </li>
-          {/* Add the rest of the Landing Page submenu items similarly */}
         </ul>
       </li>
 
@@ -274,11 +301,88 @@ const Dashboard = () => {
               <i className="bx bx-right-arrow-alt"></i>Payment Setting
             </a>
           </li>
-          {/* Add the rest of the Setting submenu items similarly */}
         </ul>
       </li>
       </ul>
     </div>
+
+
+
+
+    {/* header********************************** */}
+    <header>
+      <div className="topbar d-flex align-items-center">
+        <nav className="navbar navbar-expand">
+          <div className="mobile-toggle-menu">
+            <i className='bx bx-menu'></i>
+          </div>
+          <div className="search-bar flex-grow-1">
+            <div className="position-relative search-bar-box">
+              <input
+                type="text"
+                className="form-control search-control"
+                placeholder="Type to search..."
+              />
+              <span className="position-absolute top-50 start-0 translate-middle-y ms-3">
+                <i className='bx bx-search'></i>
+              </span>
+              <span className="position-absolute top-50 end-0 translate-middle-y me-3">
+                <i className='bx bx-x'></i>
+              </span>
+            </div>
+          </div>
+          <div className="top-menu ms-auto">
+            {/* Add your content for top menu */}
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div>
+      <div className="overlay toggle-icon"></div>
+      <a href="javaScript:;" className="back-to-top">
+        <i className='bx bxs-up-arrow-alt'></i>
+      </a>
+
+      <footer className="page-footer">
+        <p className="mb-0">Copyright © IoReady - 2023. All right reserved.</p>
+      </footer>
+
+      <div className="switcher-wrapper">
+        <div className="switcher-btn">
+          <i className='bx bx-cog bx-spin'></i>
+        </div>
+        <div className="switcher-body">
+          <div className="d-flex align-items-center">
+            <h5 className="mb-0 text-uppercase">Theme Customizer</h5>
+            <button type="button" className="btn-close ms-auto close-switcher" aria-label="Close"></button>
+          </div>
+          <hr />
+          <h6 className="mb-0">Theme Styles</h6>
+          <hr />
+          <div className="d-flex align-items-center justify-content-between">
+            {/* ... Radio buttons for theme styles */}
+          </div>
+          <hr />
+          {/* ... Radio button for Minimal Theme */}
+          <hr />
+          <h6 className="mb-0">Header Colors</h6>
+          <hr />
+          <div className="header-colors-indigators">
+            {/* ... Header color indicators */}
+          </div>
+          <hr />
+          <h6 className="mb-0">Sidebar Colors</h6>
+          <hr />
+          <div className="header-colors-indigators">
+            {/* ... Sidebar color indicators */}
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    <LandingPage/>
   </div>
   );
 };
